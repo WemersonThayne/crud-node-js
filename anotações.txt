@@ -1,0 +1,92 @@
+---------------
+
+Instalar o node js
+Instalar o git
+Instalar VsCode
+
+----------
+
+Criando um exemplo com node 
+	-> file.js 
+	-> node file.js
+
+Criando um servidor 
+//Serviço http 
+const http = require('http');
+
+//Endereço do host
+const hostname = '127.0.0.1';
+//Porta do servidor ficara escutando
+const port = 3000;
+
+//Criação do Server 
+const server = http.createServer((req, res) => {
+  //Status  de sucesso para coneção
+  res.statusCode = 200;
+  // Cabeçalho da requisição
+  res.setHeader('Content-Type', 'text/plain');
+  //Texto que será exibido
+  res.end('Hello World\n');
+});
+
+//Logs no servidor
+server.listen(port, hostname, () => {
+  console.log(`Server running at http://${hostname}:${port}/`);
+});
+
+
+==============================================
+		EXPRESS
+instalando npm install -g express-genarator
+npm express = cria o projeto base
+
+npm install : instala as dependencia
+npm start: sobe a aplicação na porta 3000
+
+===============================================
+		MONGO DB
+
+db.show // mostra os banco de dados
+
+use tasks // cria um banco de dados caso ele não exista
+show collections // mostra as coleções 
+db.task.find() // procura algum dado na coleção task
+db.task.insert({descricao:"Task 1", data: new Date()}) // insere um registro
+db.task.insert([{descricao:"task 2", data: new Date()},{descricao: "task 3", data: new Date()}])// insere um array de registro
+db.task.find().pretty()// mostra organizado os dados
+db.task.find({descricao:"task 1"}).pretty()// filtro de dados
+
+db.task.update({descricao:"task 1"},{descricao:"task 1.0"}) // update todos que tiver
+db.task.updateOne({descricao:"task 2"},{$set: {descricao:"task update 2"}}) // update no primeiro que encontrar
+db.task.remove({_id:ObjectId("4782qe1qeqwq50513207q854")})// remove objeto especifico.
+
+db.task.count() //retorna a quantidade de elementos
+db.task.find().limit(1)//reotrnar apenas um elemento
+db.task.find({descricao:"task 1"}).limit(1)//reotrnar apenas um elemento com parametos 
+
+db.task.find({descricao:{$eq: "task"}}).limit(1)// consulta apenas um elemento igual ao parametro 
+db.task.find({descricao:{$ne: "task"}}).limit(1)// consulta apenas um elemento diferente ao parametro 
+db.task.find({descricao:{$regex: /T/i}}).limit(2)// consulta apenas um elemento baseado na regex 
+db.task.find({descricao:{$regex: /T/i}}).skip(10000).limit(2)// pula os 1000 registro e tras os 2 seguntes
+
+db.task.find({$or : [{descricao:"t"},{descricao:"10"}])//or consultas com OR 
+db.task.find({data:"10/08/2018"},{descricao:1})//consultas com dados especificos da coleção, criando um objeto redugido
+db.task.find({data:{$gt: "10/08/2018"}},{descricao:1})//consultas com dados especificos da coleção, criando um objeto redugido maior que o parametro informado
+db.task.find({data:{$gte: "10/08/2018"}},{descricao:1})//consultas com dados especificos da coleção, criando um objeto redugido maior ou igual que o parametro informado
+db.task.find({data:{$lt: "10/08/2018"}},{descricao:1})//consultas com dados especificos da coleção, criando um objeto redugido menor que o parametro informado
+db.task.find({data:{$lte: "10/08/2018"}},{descricao:1})//consultas com dados especificos da coleção, criando um objeto redugido menor ou igual ao parametro informado
+db.task.find({},{descricao:1}).sort({descricao:1}).limit(10).pretty()//retornar os 10 primeiro ordenado crescente
+db.task.find({},{descricao:1}).sort({descricao:-1}).limit(10).pretty()//retornar os 10 primeiro ordenado decresente
+
+
+==========
+Instalar o robomongo
+Instalar postman
+
+
+
+
+
+
+
+
