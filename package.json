@@ -1,0 +1,21 @@
+{
+  "name": "crud-node",
+  "version": "1.0.0",
+  "description": "Aplicação de Estudos Básicos sobre Node Js, Express e MongoDB",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WemersonThayne/exemplos-node-js.git"
+  },
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "~4.16.3",
+    "mongease": "*",
+    "request": "~2.88.0"
+  },
+  "author": "Wemerson",
+  "license": "ISC"
+}
