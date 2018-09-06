@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var Schema = new mongoose.Schema;
 
 /**
  * Task 
@@ -12,12 +11,12 @@ var Schema = new mongoose.Schema;
  * 
  */
 
- var taskSchema = new Schema({
+ var TaskSchema = new mongoose.Schema({
      descricao: String,
-     dataCriacao: {type : Date, default : new Date() }, 
+     dataCriacao: {type : Date, default : Date.now  }, 
      status: JSON,
      dataConclusao:Date,
      ativo: { type : Boolean, default : true}
  });
 
- module.exports = mongoose.model('task',taskSchema);
+ module.exports = mongoose.models.tasks ||  mongoose.model('Task',TaskSchema) ;
